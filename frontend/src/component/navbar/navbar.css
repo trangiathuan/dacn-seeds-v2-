@@ -1,0 +1,57 @@
+body{
+    
+}
+.nav-bg{
+    background-color:#228B22;
+}
+.nav-a{
+    color: white;
+    font-size: 21px;
+    padding-left: 25px;
+}
+.nav-bg{
+    font-size: 21px;
+    padding-left: 150px;
+}
+.nav-item{
+    padding-left: 20px;
+}
+.logo{
+    width: 60%;
+   
+}
+.btn-search{
+    background-color: 	#8B4513;
+    color: white;
+    outline-color: 	#8B4513;
+    border-radius: 10px;
+}
+.btn-search:hover{
+    background-color: rgb(171, 121, 35);
+    outline-color: rgb(171, 121, 35);
+    width: 16.8%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+.dropdown:hover .dropdown-menu {
+   
+    display: block;
+}
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+
