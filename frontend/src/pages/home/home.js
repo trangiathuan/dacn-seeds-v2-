@@ -3,10 +3,14 @@ import './home.css';
 const Home = () => {
     return (
         <div>
+
             <Nav />
+
             <div>
                 <img className="home-banner" src={require('../../asset/Images/banner01.png')} />
             </div>
+
+
             <div>
                 <div className="text-center mt-5">
                     <img className='icon-img' src={require('../../asset/Images/plant.png')} />
@@ -15,6 +19,8 @@ const Home = () => {
                 </div>
                 <div className='title-2'>DANH MỤC SẢN PHẨM</div>
             </div>
+
+
             <div className='row mt-5'>
                 <div className='col-2'></div>
                 <div className='col-2'>
@@ -43,6 +49,8 @@ const Home = () => {
                 </div>
                 <div className='col-2'></div>
             </div>
+
+
             <div className='row'>
                 <div className='col-2'></div>
                 <div className='col-2'>
@@ -71,6 +79,120 @@ const Home = () => {
                 </div>
                 <div className='col-2'></div>
             </div>
+
+
+            <div>
+                <div className="text-center mt-5">
+                    <img className='icon-img' src={require('../../asset/Images/plant.png')} />
+                    <span className='fs-4 fw-bold title-1'>Hạt giống chất lượng hàng đầu Việt Nam</span>
+                    <img className='icon-img' src={require('../../asset/Images/plant.png')} />
+                </div>
+                <div className='title-2'>SẢN PHẨM NỔI BẬT</div>
+            </div>
+
+
+            <div className='row row-card'>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-3 col-card'>
+                    <div class="card">
+                        <img src={require('../../asset/Images/category-thaoduoc.jpg')} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Hạt giống cây hành lá</h5>
+                            <p class="card-text">Some quick example text to build on the Hạt giống cây </p>
+                            <h4>250000</h4>
+                            <a href="#" class="btn btn-success ">Thêm vào giỏ hàng   </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 }
