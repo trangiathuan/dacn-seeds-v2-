@@ -1,0 +1,52 @@
+a{
+    text-decoration: none;
+}
+.home-banner{
+    padding-top: 130px;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon-img{
+    width: 3%;
+    margin-top: -20px;
+}
+.title-1{
+    margin-top: 50px;
+}
+.title-2{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: cursive;
+    padding-top: 5px;
+}
+
+/*css loại sản phẩm*/
+.img-category{
+    border: solid rgb(226, 226, 226) 1px;
+    border-radius: 25px;
+    width: 196px;
+    height: 196px;
+}
+.col-2{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 220px;
+}
+.title-category{
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+.title-category:hover{
+    color:#228B22 ;
+}
+.img-category:hover{
+    width: 190px;
+    height: 190px;
+    border: solid rgb(225, 225, 225) 5px;
+}
