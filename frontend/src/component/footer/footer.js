@@ -8,13 +8,13 @@ const Footer = () => {
                         <p className='footer-title'>Thông tin liên hệ</p>
                         <div>
                             <p className='p-title'><img className='category-img' src={require('../../asset/Images/footer-land.png')} /> Địa chỉ: Ấp Tân Quới, xã Tân Hòa Thành,<br /> huyện Tân Phước, tỉnh Tiền Giang</p>
-                            <p className='p-title'><img className='category-img' src={require('../../asset/Images/footer-land.png')} />Trụ sở chính: 1107 Đường Trần Phú,<br /> Phường Lộc Tiến, TP Bảo Lộc, Lâm Đồng</p>
+                            <p className='p-title'><img className='category-img' src={require('../../asset/Images/footer-land.png')} /> Trụ sở chính: 1107 Đường Trần Phú,<br /> Phường Lộc Tiến, TP Bảo Lộc, Lâm Đồng</p>
                         </div>
                         <div>
-                            <button className='btn btn-footer'>Tổng đài: 19002435</button>
+                            <button className='btn btn-footer'>Tổng đài: 2100002435</button>
                         </div>
                         <p className='footer-title'>Hệ thống siêu thị</p>
-                        <p className='p-title'>Kho hàng chảy dài từ Bắc vào Nam</p>
+                        <p className='p-title'>Kho hàng trải dài từ Bắc vào Nam</p>
                         <p className='footer-title'>Theo dõi chúng tôi qua</p>
                         <div className='row row-logo'>
                             <div className='col-3'><img className='logo-footer' src={require('../../asset/Images/footer-fb.jpg')} /></div>
@@ -28,28 +28,28 @@ const Footer = () => {
                         <p className='footer-title ms-4'>Danh mục sản phẩm</p>
                         <div>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Cây Ăn Trái</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Cây Ăn Trái</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Rau Mầm</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Rau Mầm</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Dược Liệu</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Dược Liệu</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Cây Cảnh</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Cây Cảnh</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Rau, Củ, Quả</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Rau, Củ, Quả</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Rau Gia Vị</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Rau Gia Vị</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Hoa</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Hoa</a>
                             </ul>
                             <ul>
-                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} />Hạt Giống Cỏ</a>
+                                <a href='#'><img className='category-img' src={require('../../asset/Images/wheat.png')} /> Hạt Giống Cỏ</a>
                             </ul>
                         </div>
                     </div>
