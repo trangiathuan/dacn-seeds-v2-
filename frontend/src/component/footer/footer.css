@@ -1,0 +1,45 @@
+.footer{
+    background-color: #196f19;
+    margin-top: 32px;
+}
+.footer-center{
+    padding: 30px;
+    padding-left: 150px;
+}
+ul a{
+    color: rgb(255, 255, 255);
+}
+ul a:hover{
+    color: rgb(215, 251, 58);
+}
+.btn-footer{
+    background-color: #25a701;
+    color: white;
+}
+.btn-footer:hover{
+    background-color: rgb(129, 155, 16);;
+    color: white;
+}
+.footer-title{
+    color: rgb(215, 251, 58);
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+.p-title{
+    color: white;
+}
+.logo-footer{
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    padding: 3px;
+}
+.row-logo{
+    width: 250px;
+}
+.category-img{
+    width: 20px;
+    height: 20px;
+    padding-right: 2px;
+}

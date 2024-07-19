@@ -11,7 +11,7 @@ const Nav = () => {
                 </div>
                 <div className='col-5'>
                     <div class="input-group mt-3 mb-3 nav-search">
-                        <input type="text" class="form-control" placeholder="Bạn muốn tìm hạt giống gì" />
+                        <input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm" />
                         <button class="btn btn-outline-secondary btn-search" type="button" id="button-addon2">Tìm kiếm</button>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ const Nav = () => {
                                         Hạt Giống Rau Mầm</a>
                                     <a class="dropdown-item" href="#">
                                         <img className='img-icon' src={require('../../asset/Images/willow.png')} />
-                                        Hạt Giống Cây Dược Liệu</a>
+                                        Hạt Giống Dược Liệu</a>
                                     <a class="dropdown-item" href="#">
                                         <img className='img-icon' src={require('../../asset/Images/golden-pothos.png')} />
                                         Hạt Giống Cây Cảnh</a>

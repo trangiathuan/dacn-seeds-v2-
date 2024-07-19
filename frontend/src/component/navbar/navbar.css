@@ -91,7 +91,8 @@
     display: block;
 }
 .dropdown-menu a:hover {
-    background-color: #f8f9fa;
+    background-color: #f0f0f0;
+    border-radius: 15px;
 }
 .dropdown-item{
     font-size: 18px;
@@ -100,7 +101,6 @@
 }
 .img-icon{
     width: 15%;
-    
 }
 
 
