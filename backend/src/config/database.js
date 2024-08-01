@@ -22,7 +22,12 @@ const dbState = [
 ];
 //Kết nối MongoDB
 const connection = async () => {
-    await mongoose.connect('mongodb://giathuan:123456@localhost:27017/');
+    const options = {
+        user: 'giathuan',
+        pass: '123456',
+        dbName: 'seeds'
+    }
+    await mongoose.connect('mongodb://localhost:27017/', options);
     //Check connect DB
     const state = Number(mongoose.connection.readyState);
     console.log(dbState.find(f => f.value === state).label, "to database"); // connected to db
