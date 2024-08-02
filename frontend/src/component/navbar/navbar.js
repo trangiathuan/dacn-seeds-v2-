@@ -25,9 +25,11 @@ const Nav = () => {
                     <span>  Giỏ hàng</span>
                 </div>
                 <div className='col-1 mt-2 mb-3'>
-                    <button className='btn btn-nav'>
-                        <img className='cart' src={require('../../asset/Images/user.png')} />
-                    </button>
+                    <a href='/login'>
+                        <button className='btn btn-nav' >
+                            <img className='cart' src={require('../../asset/Images/user.png')} />
+                        </button>
+                    </a>
                 </div>
             </div>
             <div className='sticky-sm-top'>
@@ -77,10 +79,10 @@ const Nav = () => {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link nav-a" aria-current="page" href="#">TRANG CHỦ</a>
+                                <a class="nav-link nav-a" aria-current="page" href="/">TRANG CHỦ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-a" href="#">SẢN PHẨM</a>
+                                <a class="nav-link nav-a" href="/products">SẢN PHẨM</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-a" href="#">VỀ CHÚNG TÔI</a>

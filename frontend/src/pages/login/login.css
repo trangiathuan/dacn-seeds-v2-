@@ -1,0 +1,52 @@
+.brg {
+    width: 100%;
+    height: 100vh; /* Chiều cao toàn màn hình */
+    background-image: url(../../asset/Images/brg-login.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    opacity: 0.95;
+    background: rgba(62, 97, 62, 0.5); /* Làm nền trong suốt */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: white;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form .text-center {
+    color: white;
+}
+
+.login-form .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.login-form .btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form a {
+    color: #007bff;
+}
+
+.login-form a:hover {
+    text-decoration: none;
+}

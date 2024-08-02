@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //import pages
 import Home from './pages/home/home';
+import Login from './pages/login/login';
+import Register from './pages/login/register';
+import Products from './pages/products/products';
+import ProductDetail from './pages/product-detail/product_detail';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,6 +18,11 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/product-detail' element={<ProductDetail />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
