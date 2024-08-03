@@ -10,6 +10,8 @@ import Login from './pages/login/login';
 import Register from './pages/login/register';
 import Products from './pages/products/products';
 import ProductDetail from './pages/product-detail/product_detail';
+import ProductsCategory from './pages/product-category/products-category';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +24,7 @@ root.render(
         <Route path='/register' element={<Register />} />
         <Route path='/products' element={<Products />} />
         <Route path='/product-detail/:id' element={<ProductDetail />} />
+        <Route path='/products-category/:id' element={<ProductsCategory />} />
 
       </Routes>
     </BrowserRouter>

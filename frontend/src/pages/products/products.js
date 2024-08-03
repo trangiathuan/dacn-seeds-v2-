@@ -38,10 +38,10 @@ const Products = () => {
                     <div className=' row row-category'>
                         <h4 className=''>DANH MỤC SẢN PHẨM</h4>
                         {category.map((item) => (
-                            <a key={item._id} className='a-category mt-3'>
+                            <Link to={`/products-category/${item._id}`} key={item._id} className='a-category mt-3'>
                                 <img className='img-icon-product' src={require(`../../asset/Images/${item.categoryIcon}`)} />
                                 {item.categoryName}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

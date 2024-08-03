@@ -45,10 +45,24 @@ const getProductDetail = async (req, res) => {
         res.status(500).send('Server error');
     }
 }
+const getProductCategory = async (req, res) => {
+    const id = req.params.id
+    try {
+        const products = await Product.find({ categoryId: id });
+        if (!products || products.length === 0) {
+            return res.status(404).send('Products not found');
+        }
+        res.json(products);
+    } catch (error) {
+        console.error('Error fetching products by category:', error);
+        res.status(500).send('Server error');
+    }
+}
 
 
 module.exports = {
     getProduct,
     postCreateProduct,
-    getProductDetail
+    getProductDetail,
+    getProductCategory
 }
