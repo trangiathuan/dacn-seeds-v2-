@@ -1,23 +1,117 @@
 .product-detail-body{
-    margin-top: 130px;
+    margin-top: 140px;
 }
 .product-detail{
     display: block;
     margin: auto;
     border: rgb(255, 255, 255) solid 1px;
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: 0 2px 10px 5px rgba(0, 0, 0, 0.3);
     width: 1000px;
-    height: 550px;
+    height: 455px;
 }
 .img-product{
     width: 350px;
     height: 350px;
     border: rgb(202, 196, 196) solid 1px;
     border-radius: 10px;
-    margin: 50px 100px;
+    margin: 50px 55px;
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.5);
 }
 .content-detail{
     margin-top: 45px;
+    width: 450px;
+    font-weight: 700;
+}
+.text-1{
+    color: red;
+    margin-bottom: 5px;
+}
+.text-2{
+    color: red;
+}
+.price{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.text-3{
+    color: blue;
+}
+.quantity{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.text-4{
+    font-weight: 600;
+    font-size: 16px;
+}
+.description{
+    font-size: 18px;
+    height: 140px;  
+}
+.btn-cart-detail{
+    display: block;   
+    width: 216px;
+    height: 38px;
+    border-radius: 25px;
+    margin-left: auto;
+}
+.btn-cart-detail:hover{
+    background-color: rgb(224, 19, 19);
+    border: red;
+    width: 216px;
+    height: 38px;
+}
+.comment-detail{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 999px;
+}
+.input-comment{
+    display: block;
+    margin-left: auto;
+    width: 928px;
+    height: 80px;
+    border: rgb(231, 231, 231) solid 1px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 3px rgb(223, 222, 222);
+}
+.input-comment:hover{
+    box-shadow: 0px 2px 10px 5px rgb(230, 230, 230);
+    border: rgb(218, 214, 214);
+}
+.btn-commnet{
+    display: block;
+    margin-left: auto;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+.commnet-text{
+    border: rgb(255, 255, 255) solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 2px 10px 5px rgb(209, 206, 206);
+    width: 940px;
+    margin-bottom: 15px ;
+}
+.img-avt{
+    width: 50px;
+    height: 50px;
+    border: rgb(255, 255, 255) solid 1px;
+    border-radius: 50% ;
+    box-shadow:  2px 2px 15px 5px rgb(203, 203, 203);
+}
+.avt{
+    width: 80px;
+    margin-top: 5px;
+}
+.name-user{
+    display: block;
+    margin: auto;
+    font-weight: 700;
+}
+.date-comment{
+    font-weight: 400;
 }
