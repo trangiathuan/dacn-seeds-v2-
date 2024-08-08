@@ -6,7 +6,7 @@ const Register = () => {
             <div className="login-container">
                 <div className="login-content">
                     <form className="login-form">
-                        <h2 className="text-center">ĐĂNG KÍ TÀI KHOẢN</h2>
+                        <h2 className="text-center">ĐĂNG KÝ TÀI KHOẢN</h2>
                         <div className="form-group">
                             <label htmlFor="email" className="mb-2">Tên tài khoản</label>
                             <input type="text" className="form-control" placeholder="Nhập tên tài khoản" />
@@ -35,7 +35,7 @@ const Register = () => {
                             <label htmlFor="password" className="mb-2">Email</label>
                             <input type="email" className="form-control" placeholder="Nhập email" />
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block">Đăng kí</button>
+                        <button type="submit" className="btn btn-primary btn-block">Đăng ký</button>
                     </form>
                 </div>
             </div>

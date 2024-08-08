@@ -42,30 +42,30 @@ const Nav = () => {
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <div className='row'>
                                 <div className='col-4'>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fb9">
                                         <img className='img-icon' src={require('../../asset/Images/plant.png')} />
                                         Hạt Giống Cây Ăn Trái</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fba">
                                         <img className='img-icon' src={require('../../asset/Images/leaf.png')} />
                                         Hạt Giống Rau Mầm</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbb">
                                         <img className='img-icon' src={require('../../asset/Images/willow.png')} />
                                         Hạt Giống Dược Liệu</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbc">
                                         <img className='img-icon' src={require('../../asset/Images/golden-pothos.png')} />
                                         Hạt Giống Cây Cảnh</a>
                                 </div>
                                 <div className='col-4'>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbd">
                                         <img className='img-icon' src={require('../../asset/Images/tomato.png')} />
                                         Hạt Giống Rau, Củ, Quả</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbe">
                                         <img className='img-icon' src={require('../../asset/Images/leaf2.png')} />
                                         Hạt Giống Rau Gia Vị</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbf">
                                         <img className='img-icon' src={require('../../asset/Images/flower.png')} />
                                         Hạt Giống Hoa</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fc0">
                                         <img className='img-icon' src={require('../../asset/Images/spider.png')} />
                                         Hạt Giống Cỏ</a>
                                 </div>

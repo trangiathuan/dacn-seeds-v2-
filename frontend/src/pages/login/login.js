@@ -16,7 +16,7 @@ const Login = () => {
                             <input type="password" className="form-control" placeholder="Nhập mật khẩu" />
                         </div>
                         <button type="submit" className="btn btn-primary btn-block">Đăng nhập</button>
-                        <p className="text-center mt-3">Bạn chưa có tài khoản đăng nhập ? <a href="/register">Đăng kí</a></p>
+                        <p className="text-center mt-3">Bạn chưa có tài khoản đăng nhập ? <a href="/register">Đăng ký</a></p>
                     </form>
                 </div>
             </div>
