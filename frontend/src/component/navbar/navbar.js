@@ -1,5 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import './navbar.css'
+
 const Nav = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // Xóa token khỏi localStorage
+        localStorage.removeItem('token');
+
+        // Chuyển hướng về trang đăng nhập
+        navigate('/');
+    };
     return (
         <div className='nav-all  '>
             <div className='row'>
@@ -21,8 +32,8 @@ const Nav = () => {
                 <div className='col-1 mt-2 mb-3 a-cart '>
                     <a className='btn btn-nav' href='/cart'>
                         <img className='cart' src={require('../../asset/Images/cart.png')} />
+                        <span>  Giỏ hàng</span>
                     </a>
-                    <span>  Giỏ hàng</span>
                 </div>
                 <div className='col-1 mt-2 mb-3'>
                     <a href='/login'>
@@ -30,6 +41,9 @@ const Nav = () => {
                             <img className='cart' src={require('../../asset/Images/user.png')} />
                         </button>
                     </a>
+                </div>
+                <div className='col-1 mt-2 mb-3'>
+                    <button onClick={handleLogout}>Đăng xuất</button>
                 </div>
             </div>
             <div className='sticky-sm-top'>
