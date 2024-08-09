@@ -12,6 +12,7 @@ import Products from './pages/products/products';
 import ProductDetail from './pages/product-detail/product_detail';
 import ProductsCategory from './pages/product-category/products-category';
 import Cart from './pages/cart/cart';
+import Checkout from './pages/checkout/checkout';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,6 +27,7 @@ root.render(
         <Route path='/product-detail/:id' element={<ProductDetail />} />
         <Route path='/products-category/:id' element={<ProductsCategory />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

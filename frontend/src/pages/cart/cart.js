@@ -12,6 +12,7 @@ const Cart = () => {
 
     useEffect(() => {
         if (!isLoggedIn) {
+            navigate('/login');
             return;
         } else {
             // Nếu người dùng đã đăng nhập, tải giỏ hàng từ cơ sở dữ liệu
@@ -34,7 +35,7 @@ const Cart = () => {
     };
 
     const updateCartItem = (id, quantity) => {
-        if (quantity <= 0) return; // Không cho phép số lượng <= 0
+        if (quantity <= 0) return;
 
         // Nếu người dùng đã đăng nhập, cập nhật giỏ hàng trong cơ sở dữ liệu
         updateCartItemInDatabase(id, quantity);
@@ -73,11 +74,14 @@ const Cart = () => {
         });
     };
 
-    // Tính tổng tiền
     const calculateTotalPrice = () => {
         return cartItems.reduce((total, item) => {
             return total + item.price * item.quantity;
         }, 0);
+    };
+
+    const handleProceedToCheckout = () => {
+        navigate('/checkout');
     };
 
     return (
@@ -98,8 +102,8 @@ const Cart = () => {
                         <tbody>
                             {cartItems.map(item => (
                                 <tr key={item._id}>
-                                    <td className='img-cart-body'>
-                                        <img className='img-cart' src={require(`../../asset/images-product/${item.image}`)} alt={item.productName} />
+                                    <td className='img-checkout-body'>
+                                        <img className='img-checkout' src={require(`../../asset/images-product/${item.image}`)} alt={item.productName} />
                                     </td>
                                     <td className='cart-name'>
                                         <p className='name-product'>{item.productName}</p>
@@ -123,6 +127,7 @@ const Cart = () => {
                     <div className="cart-total">
                         <h4>Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h4>
                     </div>
+                    <button className='btn btn-success' onClick={handleProceedToCheckout}>Tiến hành thanh toán</button>
                 </div>
             </div>
             <Footer />

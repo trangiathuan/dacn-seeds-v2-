@@ -1,0 +1,21 @@
+.body-checkout{
+    margin-top: 200px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+    border: solid rgb(224, 224, 224) 1px;
+    border-radius: 15px;
+    box-shadow:  0px 2px 10px 2px rgb(210, 210, 210);
+}
+.img-checkout{
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+.img-checkout-body{
+width: 200px;
+}
