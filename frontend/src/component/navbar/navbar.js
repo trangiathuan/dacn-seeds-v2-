@@ -19,9 +19,9 @@ const Nav = () => {
 
                 </div>
                 <div className='col-1 mt-2 mb-3 a-cart '>
-                    <button className='btn btn-nav' href='#'>
+                    <a className='btn btn-nav' href='/cart'>
                         <img className='cart' src={require('../../asset/Images/cart.png')} />
-                    </button>
+                    </a>
                     <span>  Giỏ hàng</span>
                 </div>
                 <div className='col-1 mt-2 mb-3'>

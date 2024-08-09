@@ -11,27 +11,23 @@ import Register from './pages/login/register';
 import Products from './pages/products/products';
 import ProductDetail from './pages/product-detail/product_detail';
 import ProductsCategory from './pages/product-category/products-category';
-import { CartProvider } from './context/CartContext';
-
-
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/product-detail/:id' element={<ProductDetail />} />
-          <Route path='/products-category/:id' element={<ProductsCategory />} />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/product-detail/:id' element={<ProductDetail />} />
+        <Route path='/products-category/:id' element={<ProductsCategory />} />
+
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
