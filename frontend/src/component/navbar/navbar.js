@@ -1,120 +1,149 @@
 import { useNavigate } from 'react-router-dom';
-import './navbar.css'
+import React, { useState, useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';  // Sử dụng axios để gửi yêu cầu tới backend
+import './navbar.css';
 
 const Nav = () => {
     const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            try {
+                const decoded = jwtDecode(token);
+                const userId = decoded.userId;
+
+                // Gửi yêu cầu để lấy thông tin người dùng dựa trên userId
+                axios.get(`http://localhost:8000/api/auth/users/${userId}`)
+                    .then(response => {
+                        setUser(response.data);  // Giả sử backend trả về đối tượng user với các trường như userName
+                    })
+                    .catch(error => {
+                        console.error("Error fetching user data:", error);
+                    });
+            } catch (error) {
+                console.error("Invalid token:", error);
+            }
+        }
+    }, []);
 
     const handleLogout = () => {
-        // Xóa token khỏi localStorage
         localStorage.removeItem('token');
-
-        // Chuyển hướng về trang đăng nhập
-        navigate('/');
+        navigate('/login');
     };
-    return (
-        <div className='nav-all  '>
-            <div className='row'>
-                <div className='col-1'>
 
-                </div>
+    return (
+        <div className='nav-all'>
+            <div className='row'>
+
                 <div className='col-2'>
-                    <img class='logo' src={require("../../asset/Images/Logo.png")} />
+                    <img className='logo' src={require("../../asset/Images/Logo.png")} alt="Logo" />
                 </div>
                 <div className='col-5'>
-                    <div class="input-group mt-3 mb-3 nav-search">
-                        <input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm" />
-                        <button class="btn btn-outline-secondary btn-search" type="button" id="button-addon2">Tìm kiếm</button>
+                    <div className="input-group mt-3 mb-3 nav-search">
+                        <input type="text" className="form-control" placeholder="Nhập sản phẩm cần tìm" />
+                        <button className="btn btn-outline-secondary btn-search" type="button" id="button-addon2">Tìm kiếm</button>
                     </div>
                 </div>
-                <div className='col-1'>
-
-                </div>
-                <div className='col-1 mt-2 mb-3 a-cart '>
+                <div className='col-nav'></div>
+                <div className='col-1 mb-3 a-cart'>
                     <a className='btn btn-nav' href='/cart'>
-                        <img className='cart' src={require('../../asset/Images/cart.png')} />
+                        <img className='cart' src={require('../../asset/Images/cart.png')} alt="Cart" />
                         <span>  Giỏ hàng</span>
                     </a>
                 </div>
-                <div className='col-1 mt-2 mb-3'>
-                    <a href='/login'>
-                        <button className='btn btn-nav' >
-                            <img className='cart' src={require('../../asset/Images/user.png')} />
-                        </button>
-                    </a>
-                </div>
-                <div className='col-1 mt-2 mb-3'>
-                    <button onClick={handleLogout}>Đăng xuất</button>
+                <div className=' mt-4 mb-3 login-nav'>
+                    {user ? (
+                        <>
+                            <p className='username-nav'>{user.fullName}</p> {/* Hiển thị userName hoặc email */}
+                            <button onClick={handleLogout} className='btn btn-login'>Đăng xuất</button>
+                        </>
+                    ) : (
+                        <a href='/login'>
+                            <button className='btn btn-login'>
+                                Đăng nhập
+                            </button>
+                        </a>
+                    )}
                 </div>
             </div>
             <div className='sticky-sm-top'>
-                <nav className="navbar navbar-expand-lg nav-bg ">
+                <nav className="navbar navbar-expand-lg nav-bg">
                     {/* Menu dropdown */}
-                    <div class="dropdown ps-5">
-                        <a class="btn dropdown nav-a" href="#" role="button" id="dropdownMenuLink">
-                            <img className='icon-menu' src={require('../../asset/Images/menu.png')} /> DANH MỤC SẢN PHẨM
+                    <div className="dropdown ps-5">
+                        <a className="btn dropdown nav-a" href="#" role="button" id="dropdownMenuLink">
+                            <img className='icon-menu' src={require('../../asset/Images/menu.png')} alt="Menu" /> DANH MỤC SẢN PHẨM
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <div className='row'>
                                 <div className='col-4'>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fb9">
-                                        <img className='img-icon' src={require('../../asset/Images/plant.png')} />
-                                        Hạt Giống Cây Ăn Trái</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fba">
-                                        <img className='img-icon' src={require('../../asset/Images/leaf.png')} />
-                                        Hạt Giống Rau Mầm</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbb">
-                                        <img className='img-icon' src={require('../../asset/Images/willow.png')} />
-                                        Hạt Giống Dược Liệu</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbc">
-                                        <img className='img-icon' src={require('../../asset/Images/golden-pothos.png')} />
-                                        Hạt Giống Cây Cảnh</a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fb9">
+                                        <img className='img-icon' src={require('../../asset/Images/plant.png')} alt="Plant" />
+                                        Hạt Giống Cây Ăn Trái
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fba">
+                                        <img className='img-icon' src={require('../../asset/Images/leaf.png')} alt="Leaf" />
+                                        Hạt Giống Rau Mầm
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fbb">
+                                        <img className='img-icon' src={require('../../asset/Images/willow.png')} alt="Willow" />
+                                        Hạt Giống Dược Liệu
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fbc">
+                                        <img className='img-icon' src={require('../../asset/Images/golden-pothos.png')} alt="Golden Pothos" />
+                                        Hạt Giống Cây Cảnh
+                                    </a>
                                 </div>
                                 <div className='col-4'>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbd">
-                                        <img className='img-icon' src={require('../../asset/Images/tomato.png')} />
-                                        Hạt Giống Rau, Củ, Quả</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbe">
-                                        <img className='img-icon' src={require('../../asset/Images/leaf2.png')} />
-                                        Hạt Giống Rau Gia Vị</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fbf">
-                                        <img className='img-icon' src={require('../../asset/Images/flower.png')} />
-                                        Hạt Giống Hoa</a>
-                                    <a class="dropdown-item" href="/products-category/66acff98b05c1a4960364fc0">
-                                        <img className='img-icon' src={require('../../asset/Images/spider.png')} />
-                                        Hạt Giống Cỏ</a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fbd">
+                                        <img className='img-icon' src={require('../../asset/Images/tomato.png')} alt="Tomato" />
+                                        Hạt Giống Rau, Củ, Quả
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fbe">
+                                        <img className='img-icon' src={require('../../asset/Images/leaf2.png')} alt="Leaf 2" />
+                                        Hạt Giống Rau Gia Vị
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fbf">
+                                        <img className='img-icon' src={require('../../asset/Images/flower.png')} alt="Flower" />
+                                        Hạt Giống Hoa
+                                    </a>
+                                    <a className="dropdown-item" href="/products-category/66acff98b05c1a4960364fc0">
+                                        <img className='img-icon' src={require('../../asset/Images/spider.png')} alt="Spider" />
+                                        Hạt Giống Cỏ
+                                    </a>
                                 </div>
                                 <div className='col-4 mt-5'>
-                                    <img class='logo' src={require("../../asset/Images/Logo.png")} />
+                                    <img className='logo' src={require("../../asset/Images/Logo.png")} alt="Logo" />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link nav-a" aria-current="page" href="/">TRANG CHỦ</a>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link nav-a" aria-current="page" href="/">TRANG CHỦ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-a" href="/products">SẢN PHẨM</a>
+                            <li className="nav-item">
+                                <a className="nav-link nav-a" href="/products">SẢN PHẨM</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-a" href="#">VỀ CHÚNG TÔI</a>
+                            <li className="nav-item">
+                                <a className="nav-link nav-a" href="#">VỀ CHÚNG TÔI</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-a" href="#">LIÊN HỆ</a>
+                            <li className="nav-item">
+                                <a className="nav-link nav-a" href="#">LIÊN HỆ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-a" href="#">TIN TỨC</a>
+                            <li className="nav-item">
+                                <a className="nav-link nav-a" href="#">TIN TỨC</a>
                             </li>
                         </ul>
                     </div>
-
                 </nav>
             </div>
-
         </div>
-
     );
-}
+};
+
 export default Nav;

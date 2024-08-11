@@ -1,5 +1,5 @@
 .body-checkout{
-    margin-top: 200px;
+    margin-top: 140px;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -9,8 +9,8 @@
     box-shadow:  0px 2px 10px 2px rgb(210, 210, 210);
 }
 .img-checkout{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -18,4 +18,44 @@
 }
 .img-checkout-body{
 width: 200px;
+}
+
+.checkout-name{
+    width: 325px;
+    
+}
+.name-product{
+    margin: auto;
+    text-align: center;
+}
+.checkout-price{
+    text-align: center;
+}
+.checkout-quantity{
+    text-align: center;
+    width: 150px;
+}
+.input-checkout{
+    width: 55px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.checkout-delete{
+    text-align: center;
+}
+.checkout-total h4{
+    text-align: right;
+    margin-right: 25px;
+    
+}
+.total-price{
+    text-align: center;
+}
+.customer-infor{
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: 25px;
+    
 }

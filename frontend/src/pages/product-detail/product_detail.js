@@ -87,7 +87,7 @@ const ProductDetail = () => {
                             </div>
                             <div className='commnet-text col-8'>
                                 <p className='name-user'>Trần Gia Thuận <span className='date-comment'>2/8/2024</span></p>
-                                <p>Shop mình có bán Nguyên Giang không. Mình muốn mua Nguyên Giang về ôm ngủ ạ</p>
+                                <p>Sản phẩm ngon chất lượng, lần sau sẽ tiếp tục ủng hộ</p>
                             </div>
                         </div>
                         <div className='row'>

@@ -30,6 +30,35 @@ const ProductsCategory = () => {
         fetchProducts();
     }, [id]);
 
+    const addToCart = (product) => {
+        const isLoggedIn = !!localStorage.getItem('token');
+        if (isLoggedIn) {
+            addToCartDatabase(product);
+        } else {
+            alert("Đăng nhập để thêm sản phẩm vào giỏ hàng");
+        }
+    };
+
+    const addToCartDatabase = async (product) => {
+        try {
+            const token = localStorage.getItem('token');
+            await axios.post('http://localhost:8000/api/cart', {
+                productName: product.productName,
+                image: product.image,
+                price: product.price,
+                quantity: 1  // Giả sử số lượng mặc định là 1
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert("Sản phẩm đã được thêm vào giỏ hàng");
+        } catch (err) {
+            console.error(err);
+            alert("Đăng nhập để thêm sản phẩm vào giỏ hàng");
+        }
+    };
+
     if (loading) {
         return <div>Loading...</div>; // Hiển thị thông báo chờ khi dữ liệu đang được tải
     }
@@ -53,10 +82,11 @@ const ProductsCategory = () => {
                     <div className='row row-card-product'>
                         {products.map((item) => (
                             <div key={item._id} className='col-4 col-card-product'>
-                                <Link to={`/product-detail/${item._id}`}>
-                                    <div className="card">
-                                        <img className='card-img' src={require(`../../asset/images-product/${item.image}`)} class="card-img-top" alt={item.productName} />
-                                        <div className="card-body">
+
+                                <div className="card">
+                                    <img className='card-img' src={require(`../../asset/images-product/${item.image}`)} class="card-img-top" alt={item.productName} />
+                                    <div className="card-body">
+                                        <Link to={`/product-detail/${item._id}`}>
                                             <div className='card-name mb-2'>
                                                 <p className="fw-bold">{item.productName}</p>
                                             </div>
@@ -66,10 +96,11 @@ const ProductsCategory = () => {
                                             <div className='card-title'>
                                                 <h6 className='mb-2'>Giao hàng siêu nhanh</h6>
                                             </div>
-                                            <a href="#" className="btn btn-success btn-cart">Thêm vào giỏ hàng</a>
-                                        </div>
+                                        </Link>
+
+                                        <button onClick={() => addToCart(item)} className="btn btn-success btn-cart">Thêm vào giỏ hàng</button>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         ))}
                     </div>

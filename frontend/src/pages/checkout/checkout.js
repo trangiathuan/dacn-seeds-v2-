@@ -23,7 +23,7 @@ const Checkout = () => {
             return;
         } else {
             fetchCartItems();
-            fetchUserInfo();
+
         }
     }, [isLoggedIn, navigate]);
 
@@ -36,26 +36,6 @@ const Checkout = () => {
                 }
             });
             setCartItems(res.data);
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-    const fetchUserInfo = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const res = await axios.get('http://localhost:8000/api/user/profile', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            setOrderInfo(prevState => ({
-                ...prevState,
-                fullName: res.data.fullName,
-                email: res.data.email,
-                phoneNumber: res.data.phoneNumber,
-                addDress: res.data.addDress
-            }));
         } catch (err) {
             console.error(err);
         }
@@ -104,7 +84,6 @@ const Checkout = () => {
         <div>
             <Nav />
             <div className='body-checkout'>
-                <h2>Kiểm tra đơn hàng</h2>
                 <table className="table">
                     <thead>
                         <tr>
@@ -126,80 +105,85 @@ const Checkout = () => {
                                 </td>
                                 <td className='checkout-price'>{item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                                 <td className='checkout-quantity'>{item.quantity}</td>
-                                <td className='checkout-total'>
+                                <td className='checkout-total total-price'>
                                     {(item.price * item.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                <div className="checkout-total">
-                    <h4>Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h4>
+
+                <div className='customer-infor'>
+
+                    <h4>Thông tin mua hàng</h4>
+                    <form>
+                        <div className="form-group mb-2">
+                            <label className='mb-1' htmlFor="fullName">Họ và tên:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="fullName"
+                                name="fullName"
+                                value={orderInfo.fullName}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className='mb-1' htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                value={orderInfo.email}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className='mb-1' htmlFor="phoneNumber">Số điện thoại:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                value={orderInfo.phoneNumber}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className='mb-1' htmlFor="addDress">Địa chỉ:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="addDress"
+                                name="addDress"
+                                value={orderInfo.addDress}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label className='mb-1' htmlFor="paymentMethod">Phương thức thanh toán: </label>
+                            <select
+                                className="form-control mb-2"
+                                name="paymentMethod"
+                                value={orderInfo.paymentMethod}
+                                onChange={handleInputChange}
+                            >
+                                <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
+                                <option value="creditCard">Thanh toán bằng thẻ tín dụng</option>
+                                <option value="Momo">Thanh toán qua Momo</option>
+                            </select>
+                        </div>
+                        <div className="checkout-total">
+                            <h4>Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h4>
+                        </div>
+                        <button className='btn btn-success' onClick={handleCheckout}>Thanh toán</button>
+                    </form>
                 </div>
 
-                <h3>Thông tin khách hàng</h3>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="fullName">Họ và tên:</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="fullName"
-                            name="fullName"
-                            value={orderInfo.fullName}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            name="email"
-                            value={orderInfo.email}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="phoneNumber">Số điện thoại:</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="phoneNumber"
-                            name="phoneNumber"
-                            value={orderInfo.phoneNumber}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="addDress">Địa chỉ:</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="addDress"
-                            name="addDress"
-                            value={orderInfo.addDress}
-                            onChange={handleInputChange}
-                        />
-                    </div>
 
-                    <h3>Phương thức thanh toán</h3>
-                    <div className="form-group">
-                        <select
-                            className="form-control"
-                            name="paymentMethod"
-                            value={orderInfo.paymentMethod}
-                            onChange={handleInputChange}
-                        >
-                            <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
-                            <option value="creditCard">Thanh toán bằng thẻ tín dụng</option>
-                            <option value="paypal">Thanh toán qua PayPal</option>
-                        </select>
-                    </div>
-                </form>
 
-                <button className='btn btn-success' onClick={handleCheckout}>Thanh toán</button>
             </div>
             <Footer />
         </div>

@@ -1,5 +1,5 @@
 .body-cart{
-    margin-top: 200px;
+    margin-top: 150px;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -42,4 +42,15 @@ width: 200px;
 }
 .cart-delete{
     text-align: center;
+}
+.cart-total h5{
+    text-align: right;
+    margin-right: 25px;
+}
+.btn-success{
+    display: block;
+    margin-left: auto;
+    margin-bottom: 23px;
+    margin-top: 15px;
+    margin-right: 25px;
 }

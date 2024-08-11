@@ -102,8 +102,8 @@ const Cart = () => {
                         <tbody>
                             {cartItems.map(item => (
                                 <tr key={item._id}>
-                                    <td className='img-checkout-body'>
-                                        <img className='img-checkout' src={require(`../../asset/images-product/${item.image}`)} alt={item.productName} />
+                                    <td className='img-cart-body'>
+                                        <img className='img-cart' src={require(`../../asset/images-product/${item.image}`)} alt={item.productName} />
                                     </td>
                                     <td className='cart-name'>
                                         <p className='name-product'>{item.productName}</p>
@@ -118,14 +118,14 @@ const Cart = () => {
                                         />
                                     </td>
                                     <td className='cart-delete'>
-                                        <button className='btn btn-primary' onClick={() => deleteCartItem(item._id)}>Xóa</button>
+                                        <button className='btn btn-danger' onClick={() => deleteCartItem(item._id)}>Xóa</button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                     <div className="cart-total">
-                        <h4>Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h4>
+                        <h5>Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h5>
                     </div>
                     <button className='btn btn-success' onClick={handleProceedToCheckout}>Tiến hành thanh toán</button>
                 </div>
@@ -136,3 +136,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

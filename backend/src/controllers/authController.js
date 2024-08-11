@@ -47,9 +47,26 @@ exports.login = async (req, res) => {
             return res.status(400).json({ message: "Tên tài khoản hoặc mật khẩu không đúng" });
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign(
+            { userId: user._id, userName: user.userName }, // Thêm userName vào payload của token
+            'your_jwt_secret',
+            { expiresIn: '1h' }
+        );
+
         res.status(200).json({ token });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
+
+exports.getUser = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+}

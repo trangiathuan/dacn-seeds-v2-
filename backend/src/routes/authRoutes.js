@@ -19,4 +19,5 @@ router.post('/login', [
     check('passWord', 'Mật khẩu là bắt buộc').exists()
 ], authController.login);
 
+router.get('/users/:id', authController.getUser);
 module.exports = router;

@@ -12,7 +12,23 @@
     padding-left: 20px;
     font-weight: 550;
 }
-
+.login-nav{
+    
+    margin-top: 12px;
+    width: 320px;
+    display: flex;
+}
+.username-nav{
+    font-weight: 700;
+}
+.btn-login{
+    margin-top: -16px;
+    margin-left: 17px;
+    color: rgb(17, 25, 171);
+}
+.col-nav{
+    width: 100px;
+}
 .nav-item{
     padding-left: 40px;
 }
@@ -20,8 +36,8 @@
     color: #012201;
 }
 .logo{
-    width: 70%;
-    margin-left: -15px;
+    width: 170px;
+    margin-left: 55px;
 }
 .nav-search{
     margin-left: 65px;
@@ -45,6 +61,7 @@
 }
 .a-cart{
     width: 160px;
+    margin-top: 12px;
 }
 .btn-nav{
     background-color: #f0f0f0;

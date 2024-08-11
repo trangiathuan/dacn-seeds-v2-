@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const checkoutController = require('../controllers/orderController');
-const authMiddleware = require('../middleware/authMiddleware');
+const authOrder = require('../middleware/authOrder');
 
 // Route xử lý thanh toán
-router.post('/checkout', authMiddleware, checkoutController.checkout);
+router.post('/checkout', authOrder, checkoutController.checkout);
 
 module.exports = router;
