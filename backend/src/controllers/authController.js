@@ -9,7 +9,7 @@ exports.register = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { userName, passWord, fullName, birthDay, addDress, phoneNumber, email } = req.body;
+    const { userName, passWord, fullName, birthDay, addDress, phoneNumber, email, role } = req.body;
 
     try {
         const existingUser = await User.findOne({ $or: [{ email }, { userName }] });
@@ -17,15 +17,30 @@ exports.register = async (req, res) => {
             return res.status(400).json({ message: "Tên tài khoản hoặc Email đã tồn tại" });
         }
 
-        const newUser = new User({ userName, passWord, fullName, birthDay, addDress, phoneNumber, email });
+        const newUser = new User({
+            userName,
+            passWord,
+            fullName,
+            birthDay,
+            addDress,
+            phoneNumber,
+            email,
+            role: role || 'user' // Gán role mặc định là 'user' nếu không có
+        });
+
         await newUser.save();
 
-        const token = jwt.sign({ userId: newUser._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign(
+            { userId: newUser._id, role: newUser.role }, // Thêm role vào payload của token
+            'your_jwt_secret',
+            { expiresIn: '1h' }
+        );
         res.status(201).json({ token });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
+
 
 // Đăng nhập người dùng
 exports.login = async (req, res) => {
@@ -48,7 +63,7 @@ exports.login = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { userId: user._id, userName: user.userName }, // Thêm userName vào payload của token
+            { userId: user._id, userName: user.userName, role: user.role }, // Thêm role vào payload của token
             'your_jwt_secret',
             { expiresIn: '1h' }
         );
@@ -58,6 +73,7 @@ exports.login = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 
 exports.getUser = async (req, res) => {
     try {

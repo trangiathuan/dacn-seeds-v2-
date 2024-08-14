@@ -5,11 +5,12 @@ const cors = require('cors')
 const port = 8000
 const bodyParser = require('body-parser');
 
-const productRoutes = require('./routes/productRoutes')
+const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const authRoutes = require('./routes/authRoutes');
 const checkoutRoutes = require('./routes/checkoutRoutes');
-const categoryRoutes = require('./routes/categoryRoutes')
+const categoryRoutes = require('./routes/categoryRoutes');
+const adminRoutes = require('./routes/adminRoutes')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -20,6 +21,8 @@ app.use('/', categoryRoutes)
 app.use('/api/auth', authRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', checkoutRoutes);
+app.use('/api', adminRoutes);
+
 
 const conn = async () => {
     try {

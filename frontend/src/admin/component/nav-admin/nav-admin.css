@@ -1,0 +1,9 @@
+.navbar-body{
+    height: 82px;
+    box-shadow: 2px 2px rgb(220, 220, 220);
+}
+.notification{
+    width: 35px;
+    height: 35px;
+    margin-right: 25px;
+}

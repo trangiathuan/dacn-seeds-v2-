@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
-//import pages
+// import pages
 import Home from './pages/home/home';
 import Login from './pages/login/login';
 import Register from './pages/login/register';
@@ -14,6 +13,14 @@ import ProductsCategory from './pages/product-category/products-category';
 import Cart from './pages/cart/cart';
 import Checkout from './pages/checkout/checkout';
 
+// import admin pages
+import Dashboard from './admin/dashboard/dashboard';
+import ProductsAdmin from './admin/products/productsAdmin';
+
+// import ProductList from './pages/admin/productList';
+
+// // import ProtectedRoute component
+// import ProtectedRoute from './components/ProtectedRoute';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,12 +35,17 @@ root.render(
         <Route path='/products-category/:id' element={<ProductsCategory />} />
         <Route path='/cart' element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/products" element={<ProductsAdmin />} />
+
+
+        {/* <ProtectedRoute path='/admin/dashboard' element={<Dashboard />} />
+        <ProtectedRoute path='/admin/products' element={<ProductList />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -1,0 +1,39 @@
+
+  .sidebar {
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 10px;
+    box-shadow: 1px 1px 2px rgb(193, 193, 193);
+  }
+  
+  .sidebar .nav-link {
+    font-family: 'Arial', sans-serif;
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px;
+    height: 45px;
+    width: 200px;
+  }
+  
+  
+  
+  .sidebar .nav-link:hover {
+    background-color: #e9ecef;
+    color: #050505;
+    border-radius: 10px;
+  }
+  
+  .sidebar .menu-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #adb5bd;
+    font-weight: 700;
+  }
+  .logo-sidebar {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 7px;
+}

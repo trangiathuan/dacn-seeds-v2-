@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     birthDay: { type: Date, required: true },
     addDress: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-    email: { type: String, required: true, unique: true }
+    email: { type: String, required: true, unique: true },
+    role: { type: String, enum: ['user', 'admin'], default: 'user' } // Thêm trường role
 });
 
 // Mã hóa mật khẩu trước khi lưu
