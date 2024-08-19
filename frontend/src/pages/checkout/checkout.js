@@ -12,7 +12,7 @@ const Checkout = () => {
         email: '',
         phoneNumber: '',
         addDress: '',
-        paymentMethod: 'cash' // Mặc định là tiền mặt
+        paymentMethod: 'Khi nhận hàng' // Mặc định là tiền mặt
     });
     const navigate = useNavigate();
     const isLoggedIn = !!localStorage.getItem('token');
@@ -170,9 +170,11 @@ const Checkout = () => {
                                 value={orderInfo.paymentMethod}
                                 onChange={handleInputChange}
                             >
-                                <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
-                                <option value="creditCard">Thanh toán bằng thẻ tín dụng</option>
-                                <option value="Momo">Thanh toán qua Momo</option>
+                                <option value="Khi nhận hàng">Thanh toán tiền mặt khi nhận hàng</option>
+                                <option value="Thẻ tín dụng">Thanh toán bằng thẻ tín dụng</option>
+                                <option value="Momo">Thanh toán bằng ví điện tử Momo</option>
+                                <option value="ZaloPay">Thanh toán bằng ví điện tử ZaloPay</option>
+
                             </select>
                         </div>
                         <div className="checkout-total">

@@ -7,14 +7,20 @@ import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState(null);  // Khởi tạo product là null để dễ kiểm tra
+    const [comments, setComments] = useState([]); // State để lưu danh sách bình luận
+    const [comment, setComment] = useState(''); // State để lưu comment mới
     const [loading, setLoading] = useState(true);  // Thêm trạng thái loading
     const { id } = useParams();
 
     useEffect(() => {
-        const fetchProduct = async () => {
+        const fetchProductAndComments = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/product-detail/${id}`);
-                setProduct(res.data);
+                const resProduct = await axios.get(`http://localhost:8000/product-detail/${id}`);
+                setProduct(resProduct.data);
+
+                const resComments = await axios.get(`http://localhost:8000/api/${id}/comments`);
+                setComments(resComments.data);
+
                 setLoading(false);  // Đặt loading thành false khi dữ liệu được tải
             } catch (err) {
                 console.log(err);
@@ -22,7 +28,7 @@ const ProductDetail = () => {
             }
         };
 
-        fetchProduct();
+        fetchProductAndComments();
     }, [id]);
 
     const addToCart = () => {
@@ -54,9 +60,38 @@ const ProductDetail = () => {
         }
     };
 
+    const handleCommentChange = (e) => {
+        setComment(e.target.value);
+    };
+
+    const handleCommentSubmit = async () => {
+        const isLoggedIn = !!localStorage.getItem('token');
+        if (isLoggedIn) {
+            try {
+                const token = localStorage.getItem('token');
+                const res = await axios.post(`http://localhost:8000/api/${id}/comment`, { comment }, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                setComment(''); // Reset comment sau khi submit
+                window.location.reload();
+            } catch (err) {
+                console.error(err);
+                alert('Có lỗi xảy ra, vui lòng thử lại');
+            }
+        } else {
+            alert("Đăng nhập để bình luận");
+        }
+    };
 
     if (loading) {
         return <div>Loading...</div>;  // Hiển thị loading trong khi đợi dữ liệu
+    }
+
+    if (!product) {
+        return <div>Product not found</div>;  // Hiển thị thông báo khi không tìm thấy sản phẩm
     }
 
     return (
@@ -66,13 +101,17 @@ const ProductDetail = () => {
                 <div className='product-detail'>
                     <div className='row'>
                         <div className='col-6'>
-                            <img className='img-product' src={require(`../../asset/images-product/${product.image}`)} alt={product.productName} />
+                            {product.image ? (
+                                <img className='img-product' src={require(`../../asset/images-product/${product.image}`)} alt={product.productName} />
+                            ) : (
+                                <div>No image available</div>
+                            )}
                         </div>
                         <div className='col-6 content-detail'>
                             <h3>{product.productName}</h3>
-                            <p className='text-1'>Giao hàng toàn quốc -  thanh toán khi nhận hàng</p>
+                            <p className='text-1'>Giao hàng toàn quốc - thanh toán khi nhận hàng</p>
                             <p className='price'>Giá bán:<span className='text-2'> {product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span> </p>
-                            <p className='quantity'>Số lượng trong kho:<span className='text-3'> 100</span> </p>
+                            <p className='quantity'>Số lượng trong kho:<span className='text-3'> {product.quantity}</span> </p>
                             <p className='description'>Chi tiết: <span className='text-4'> {product.description}</span> </p>
                             <button onClick={addToCart} className="btn btn-success btn-cart-detail">Thêm vào giỏ hàng</button>
                         </div>
@@ -81,37 +120,30 @@ const ProductDetail = () => {
                 <div className='comment-detail'>
                     <div className='content-comment'>
                         <h3 className='mb-4'>NỘI DUNG BÌNH LUẬN</h3>
-                        <div className='row'>
-                            <div className='col-2 avt'>
-                                <img className='img-avt' src={require('../../asset/Images/plant.png')} alt="avatar" />
-                            </div>
-                            <div className='commnet-text col-8'>
-                                <p className='name-user'>Trần Gia Thuận <span className='date-comment'>2/8/2024</span></p>
-                                <p>Sản phẩm ngon chất lượng, lần sau sẽ tiếp tục ủng hộ</p>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-2 avt'>
-                                <img className='img-avt' src={require('../../asset/Images/plant.png')} alt="avatar" />
-                            </div>
-                            <div className='commnet-text col-8'>
-                                <p className='name-user'>Trần Gia Thuận <span className='date-comment'>2/8/2024</span></p>
-                                <p>Yêu Nguyên Giang quá đi thoyyyyyy</p>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-2 avt'>
-                                <img className='img-avt' src={require('../../asset/Images/plant.png')} alt="avatar" />
-                            </div>
-                            <div className='commnet-text col-8'>
-                                <p className='name-user'>Trần Gia Thuận <span className='date-comment'>2/8/2024</span></p>
-                                <p>Chàng trai bị bỏng từ năm 6 tháng tuổi mà chúng ta cảm mến chính là chủ của tiệm bánh Hướng Dương ở TP.HCM: "Hồi xưa mình nghĩ, mình sẽ mở tiệm bánh để bán bánh cho tất cả mọi người, không phân biệt g.iàu n.ghèo, k.huyết t.ật hay lành lặn. Mình làm được rồi” - Ngô Quý Hải tâm sự </p>
-                            </div>
-                        </div>
+                        {comments.length > 0 ? (
+                            comments.map((comment, index) => (
+                                <div className='row' key={index}>
+                                    <div className='col-2 avt'>
+                                        <img className='img-avt' src={require('../../asset/Images/account.png')} alt="avatar" />
+                                    </div>
+                                    <div className='commnet-text col-8'>
+                                        <p className='name-user'>{comment.userID.fullName} <span className='date-comment'>{new Date(comment.createdAt).toLocaleDateString()}</span></p>
+                                        <p>{comment.comment}</p>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <p></p>
+                        )}
                         <div className='box-comment'>
                             <h3 className='mb-4'>BÌNH LUẬN</h3>
-                            <textarea className='input-comment' type='text' />
-                            <button className='btn btn-primary btn-commnet'>Bình luận</button>
+                            <textarea
+                                className='input-comment'
+                                value={comment}
+                                onChange={handleCommentChange}
+                                type='text'
+                            />
+                            <button className='btn btn-primary btn-commnet' onClick={handleCommentSubmit}>Bình luận</button>
                         </div>
                     </div>
                 </div>

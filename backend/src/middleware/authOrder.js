@@ -8,8 +8,8 @@ const authMiddleware = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, 'your_jwt_secret'); // Thay 'your_jwt_secret' bằng khóa bí mật thực tế của bạn
-        req.user = { userId: decoded.userId }; // Gán userId từ JWT vào req.user
+        const decoded = jwt.verify(token, 'giathuan'); // 
+        req.user = { userId: decoded.userId };
         next();
     } catch (err) {
         console.error("Token verification failed:", err);

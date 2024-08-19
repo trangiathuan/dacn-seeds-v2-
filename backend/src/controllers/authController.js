@@ -9,7 +9,7 @@ exports.register = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { userName, passWord, fullName, birthDay, addDress, phoneNumber, email, role } = req.body;
+    const { userName, passWord, fullName, birthDay, address, phoneNumber, email, role } = req.body;
 
     try {
         const existingUser = await User.findOne({ $or: [{ email }, { userName }] });
@@ -22,7 +22,7 @@ exports.register = async (req, res) => {
             passWord,
             fullName,
             birthDay,
-            addDress,
+            address,
             phoneNumber,
             email,
             role: role || 'user' // Gán role mặc định là 'user' nếu không có
@@ -32,7 +32,7 @@ exports.register = async (req, res) => {
 
         const token = jwt.sign(
             { userId: newUser._id, role: newUser.role }, // Thêm role vào payload của token
-            'your_jwt_secret',
+            'giathuan',
             { expiresIn: '1h' }
         );
         res.status(201).json({ token });
@@ -63,12 +63,12 @@ exports.login = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { userId: user._id, userName: user.userName, role: user.role }, // Thêm role vào payload của token
-            'your_jwt_secret',
+            { userId: user._id, userName: user.userName, role: user.role },
+            'giathuan',
             { expiresIn: '1h' }
         );
 
-        res.status(200).json({ token });
+        res.status(200).json({ token, role: user.role });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

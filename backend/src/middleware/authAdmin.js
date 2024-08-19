@@ -10,8 +10,7 @@ const authAdmin = (req, res, next) => {
             return res.status(401).json({ msg: 'No token, authorization denied' });
         }
 
-        // Sử dụng biến môi trường để bảo mật secret key
-        const decoded = jwt.verify(token, 'your_jwt_secret');
+        const decoded = jwt.verify(token, 'giathuan');
         req.user = decoded;
         // Kiểm tra role của người dùng
         if (req.user.role !== 'admin') {

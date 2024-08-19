@@ -48,7 +48,7 @@ const getProductDetail = async (req, res) => {
 const getProductCategory = async (req, res) => {
     const id = req.params.id
     try {
-        const products = await Product.find({ categoryId: id });
+        const products = await Product.find({ categoryID: id });
         if (!products || products.length === 0) {
             return res.status(404).send('Products not found');
         }

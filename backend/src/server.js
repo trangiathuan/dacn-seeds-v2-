@@ -11,6 +11,7 @@ const authRoutes = require('./routes/authRoutes');
 const checkoutRoutes = require('./routes/checkoutRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const adminRoutes = require('./routes/adminRoutes')
+const commentRoutes = require('./routes/commentRoutes');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -22,6 +23,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', checkoutRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', commentRoutes);
 
 
 const conn = async () => {

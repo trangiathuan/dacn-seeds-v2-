@@ -12,8 +12,14 @@ const Login = () => {
         e.preventDefault();
         try {
             const res = await axios.post('http://localhost:8000/api/auth/login', { userName, passWord });
-            localStorage.setItem('token', res.data.token);
-            navigate('/'); // Chuyển hướng đến trang chủ hoặc trang khác sau khi đăng nhập thành công
+            const { token, role } = res.data;
+            localStorage.setItem('token', token);
+            console.log(role)
+            if (role === 'admin') {
+                navigate('/admin/dashboard'); // Chuyển hướng đến trang admin nếu người dùng là admin
+            } else {
+                navigate('/'); // Chuyển hướng đến trang chủ hoặc trang khác nếu không phải admin
+            }
         } catch (err) {
             alert('Tên tài khoản hoặc mật khẩu không đúng');
         }

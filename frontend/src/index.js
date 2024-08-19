@@ -16,6 +16,11 @@ import Checkout from './pages/checkout/checkout';
 // import admin pages
 import Dashboard from './admin/dashboard/dashboard';
 import ProductsAdmin from './admin/products/productsAdmin';
+import AddProduct from './admin/products/add-product';
+import UpdateProduct from './admin/products/update-product';
+import DeleteProduct from './admin/products/delete-product';
+import OrdersAdmin from './admin/order/order';
+import UserAdmin from './admin/user/user';
 
 // import ProductList from './pages/admin/productList';
 
@@ -39,6 +44,17 @@ root.render(
         {/* Admin Routes */}
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/products" element={<ProductsAdmin />} />
+        <Route path="/admin/products-add" element={<AddProduct />} />
+        <Route path="/admin/products-update/:id" element={<UpdateProduct />} />
+        <Route path="/admin/products-delete/:id" element={<DeleteProduct />} />
+        <Route path="/admin/users" element={<UserAdmin />} />
+
+
+        <Route path="/admin/orders" element={<OrdersAdmin />} />
+
+
+
+
 
 
         {/* <ProtectedRoute path='/admin/dashboard' element={<Dashboard />} />

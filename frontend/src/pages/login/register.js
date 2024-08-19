@@ -8,7 +8,7 @@ const Register = () => {
     const [passWord, setPassWord] = useState('');
     const [fullName, setFullName] = useState('');
     const [birthDay, setBirthDay] = useState('');
-    const [addDress, setAddDress] = useState('');
+    const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Register = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:8000/api/auth/register', {
-                userName, passWord, fullName, birthDay, addDress, phoneNumber, email
+                userName, passWord, fullName, birthDay, address, phoneNumber, email
             });
             navigate('/login'); // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
         } catch (err) {
@@ -48,8 +48,8 @@ const Register = () => {
                             <input type="date" className="form-control" placeholder="Nhập ngày sinh" value={birthDay} onChange={(e) => setBirthDay(e.target.value)} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="addDress" className="mb-2">Địa chỉ</label>
-                            <input type="text" className="form-control" placeholder="Nhập địa chỉ" value={addDress} onChange={(e) => setAddDress(e.target.value)} />
+                            <label htmlFor="address" className="mb-2">Địa chỉ</label>
+                            <input type="text" className="form-control" placeholder="Nhập địa chỉ" value={address} onChange={(e) => setAddress(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="phoneNumber" className="mb-2">Số điện thoại</label>

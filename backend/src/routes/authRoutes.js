@@ -9,7 +9,7 @@ router.post('/register', [
     check('passWord', 'Mật khẩu phải có ít nhất 6 ký tự').isLength({ min: 6 }),
     check('fullName', 'Họ và tên là bắt buộc').not().isEmpty(),
     check('birthDay', 'Ngày sinh là bắt buộc').not().isEmpty(),
-    check('addDress', 'Địa chỉ là bắt buộc').not().isEmpty(),
+    check('address', 'Địa chỉ là bắt buộc').not().isEmpty(),
     check('phoneNumber', 'Số điện thoại là bắt buộc').not().isEmpty(),
     check('email', 'Email không hợp lệ').isEmail()
 ], authController.register);

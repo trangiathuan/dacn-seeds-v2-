@@ -1,6 +1,9 @@
 .productsAdmin-body {
     width: 1640px;
 }
+.content-body{
+    margin-top: 81px;
+}
 .img-product-admin {
     width: 50px;
     height: 50px;
@@ -8,6 +11,7 @@
 }
 .name-product {
     width: 180px;
+    font-weight: 600;
 }
 .description-product {
     width: 410px;
@@ -20,4 +24,66 @@
 }
 .btn-product {
     margin-left: 5px;
+}
+.btn-add {
+    color: white;
+}
+.categoryId-product {
+    width: 200px;
+}
+/* Add and update product css */
+.add-product-body{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 570px;
+    box-shadow:  1px 1px 5px rgb(209, 207, 207);
+    margin-top: 25px;
+    border-radius: 15px;
+}
+.form-add-product{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    padding-top: 10px;
+    width: 450px;
+}
+.btn-add-product {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+}
+/* Delete Product*/
+.delete-product-body{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 950px;
+    height: 370px;
+    box-shadow:  1px 1px 5px rgb(209, 207, 207);
+    margin-top: 25px;
+    border-radius: 15px;
+}
+.product-detail-delete {
+    margin-top: 20px;
+    width: 550px;
+}
+.name-delete {
+    color: red;
+}
+.image-product{
+    margin-top: 30px;
+    margin-left: 30px;
+    border-radius: 20px;
+    box-shadow:  2px 4px 5px rgb(198, 196, 196);
+    width: 270px;
+}
+.btn-delete-product-back {
+    margin-top: 20px;
+    margin-left: 350px;
+}
+.btn-delete-product {
+    margin-top: 20px;
+    margin-left: 15px;
 }
