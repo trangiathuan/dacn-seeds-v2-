@@ -24,10 +24,10 @@ const dbState = [
 const connection = async () => {
     const options = {
         user: 'giathuan',
-        pass: '123456',
+        pass: '08022003',
         dbName: 'seeds'
     }
-    await mongoose.connect('mongodb://localhost:27017/', options);
+    await mongoose.connect('mongodb+srv://trangiathuan08022003.9zwyq.mongodb.net//', options);
     //Check connect DB
     const state = Number(mongoose.connection.readyState);
     console.log(dbState.find(f => f.value === state).label, "to database"); // connected to db
