@@ -27,6 +27,35 @@ const Home = () => {
                 console.error('There was an error fetching the categories!', error);
             });
     }, []);
+
+    const addToCart = (product) => {
+        const isLoggedIn = !!localStorage.getItem('token');
+        if (isLoggedIn) {
+            addToCartDatabase(product);
+        } else {
+            alert("Đăng nhập để thêm sản phẩm vào giỏ hàng");
+        }
+    };
+
+    const addToCartDatabase = async (product) => {
+        try {
+            const token = localStorage.getItem('token');
+            await axios.post('localhost:8000/api/cart', {
+                productName: product.productName,
+                image: product.image,
+                price: product.price,
+                quantity: 1  // Giả sử số lượng mặc định là 1
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert("Sản phẩm đã được thêm vào giỏ hàng");
+        } catch (err) {
+            console.error(err);
+            alert("Đăng nhập để thêm sản phẩm vào giỏ hàng");
+        }
+    };
     return (
         <div>
 
@@ -123,16 +152,18 @@ const Home = () => {
                         <div class="card">
                             <img className='card-img' src={require(`../../asset/images-product/${item.image}`)} class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <div className='card-name mb-2' >
-                                    <p class=" fw-bold ">{item.productName}</p>
-                                </div>
-                                <h7>Số lượng:<h7 className='mb-1 card-sl'>{item.quantity}</h7></h7>
-                                <h5>Giá:<h5 className='card-price'> {item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h5>
-                                    <img className='img-sale' src={require('../../asset/Images/hot-deal.png')} /> </h5>
-                                <div className='card-title'>
-                                    <h6 className='mb-2'>Giao hàng siêu nhanh</h6>
-                                </div>
-                                <a href="#" class="btn btn-success btn-cart">Thêm vào giỏ hàng   </a>
+                                <Link to={`/product-detail/${item._id}`}>
+                                    <div className='card-name mb-2' >
+                                        <p class=" fw-bold ">{item.productName}</p>
+                                    </div>
+                                    <h7>Số lượng:<h7 className='mb-1 card-sl'>{item.quantity}</h7></h7>
+                                    <h5>Giá:<h5 className='card-price'> {item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h5>
+                                        <img className='img-sale' src={require('../../asset/Images/hot-deal.png')} /> </h5>
+                                    <div className='card-title'>
+                                        <h6 className='mb-2'>Giao hàng siêu nhanh</h6>
+                                    </div>
+                                </Link>
+                                <button onClick={() => addToCart(item)} className="btn btn-success btn-cart">Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                     </div>
